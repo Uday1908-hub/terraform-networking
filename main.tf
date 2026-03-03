@@ -1,6 +1,6 @@
 terraform {
  cloud {
-   organization = "YOUR_HCP_ORG"
+   organization = "Uday_Kiran"
    workspaces { name = "networking-workspace" }
  }
  required_providers {
