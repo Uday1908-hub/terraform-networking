@@ -7,7 +7,7 @@ terraform {
    azurerm = { source = "hashicorp/azurerm", version = "~> 3.0" }
  }
 }
-provider "azurerm" {  feature{}
+provider "azurerm" {  
 }
 # Resource Group
 resource "azurerm_resource_group" "rg" {
