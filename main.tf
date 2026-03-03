@@ -1,17 +1,23 @@
 terraform {
  cloud {
    organization = "Uday_Kiran"
-   workspaces { name = "terraform-networking" }
+   workspaces {
+     name = "terraform-networking"
+   }
  }
  required_providers {
-   azurerm = { source = "hashicorp/azurerm", version = "~> 3.0" }
+   azurerm = {
+     source  = "hashicorp/azurerm"
+     version = "~> 3.0"
+   }
  }
 }
-provider "azurerm" {  
+provider "azurerm" {
+ features {}  # Required
 }
 # Resource Group
 resource "azurerm_resource_group" "rg" {
- name     = "rg-demo"
+ name     = "rg-demo-network"
  location = "East US"
 }
 # Virtual Network
@@ -28,7 +34,7 @@ resource "azurerm_subnet" "subnet" {
  virtual_network_name = azurerm_virtual_network.vnet.name
  address_prefixes     = ["10.0.1.0/24"]
 }
-# Outputs for workspace 2
+# Outputs (for compute workspace)
 output "rg_name" { value = azurerm_resource_group.rg.name }
 output "subnet_id" { value = azurerm_subnet.subnet.id }
 output "location" { value = azurerm_resource_group.rg.location }
