@@ -1,7 +1,7 @@
 terraform {
  cloud {
    organization = "Uday_Kiran"
-   workspaces { name = "networking-workspace" }
+   workspaces { name = "terraform-networking" }
  }
  required_providers {
    azurerm = { source = "hashicorp/azurerm", version = "~> 3.0" }
