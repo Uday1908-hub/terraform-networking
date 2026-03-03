@@ -15,4 +15,12 @@ terraform {
 provider "azurerm" {
  features {}  
 }
+resource "azurerm_resource_group" "rg" {
+ name     = "rg-demo-network"
+ location = "East US"
+}
+# Output variable
+output "rg_name" {
+ value = azurerm_resource_group.rg.name
+}
 
